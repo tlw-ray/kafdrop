@@ -3,10 +3,10 @@
 <@template.header "${error.error}"/>
 <h2>${error.error}</h2>
 <div id="errorHeader">
-A ${error.status} error has occurred: <span id="errorMessage">${error.message}</span>
+A ${error.status} 错误发生: <span id="errorMessage">${error.message}</span>
 </div>
 <#if error.trace??>
-    <div id="stackTraceTitle">Stack trace</div>
+    <div id="stackTraceTitle">堆栈追踪</div>
     <div id="stackTrace">
     ${error.trace}
     </div>

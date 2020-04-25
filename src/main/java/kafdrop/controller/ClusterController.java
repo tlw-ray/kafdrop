@@ -83,7 +83,7 @@ public final class ClusterController {
     return "cluster-overview";
   }
 
-  @ApiOperation(value = "getCluster", notes = "Get high level broker, topic, and partition data for the Kafka cluster")
+  @ApiOperation(value = "getCluster", notes = "从Kafka集群获得高级别Broker, topic, 以及分区数据。")
   @ApiResponses(value = {
       @ApiResponse(code = 200, message = "Success", response = ClusterInfoVO.class)
   })

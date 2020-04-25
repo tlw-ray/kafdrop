@@ -24,28 +24,28 @@
 <div>
     <div id="kafdropVersion">${buildProperties.getVersion()} [${buildProperties.getTime()}]</div>
 
-    <h2>Kafka Cluster Overview</h2>
+    <h2>数据总线集群概览</h2>
     <div id="cluster-overview">
         <table class="table table-bordered">
             <tbody>
             <tr>
-                <td><i class="fa fa-server"></i>&nbsp;&nbsp;Bootstrap servers</td>
+                <td><i class="fa fa-server"></i>&nbsp;&nbsp;根服务器</td>
                 <td>${bootstrapServers}</td>
             </tr>
             <tr>
-                <td><i class="fa fa-database"></i>&nbsp;&nbsp;Total topics</td>
+                <td><i class="fa fa-database"></i>&nbsp;&nbsp;所有主题</td>
                 <td>${clusterSummary.topicCount}</td>
             </tr>
             <tr>
-                <td><i class="fa fa-pie-chart"></i>&nbsp;&nbsp;Total partitions</td>
+                <td><i class="fa fa-pie-chart"></i>&nbsp;&nbsp;所有分区</td>
                 <td>${clusterSummary.partitionCount}</td>
             </tr>
             <tr>
-                <td><i class="fa fa-trophy"></i>&nbsp;&nbsp;Total preferred partition leader</td>
+                <td><i class="fa fa-trophy"></i>&nbsp;&nbsp;首选领导分区总数</td>
                 <td <#if clusterSummary.preferredReplicaPercent lt 1.0>class="warning"</#if>>${clusterSummary.preferredReplicaPercent?string.percent}</td>
             </tr>
             <tr>
-                <td><i class="fa fa-heartbeat"></i>&nbsp;&nbsp;Total under-replicated partitions</td>
+                <td><i class="fa fa-heartbeat"></i>&nbsp;&nbsp;复制不足分区总数</td>
                 <td <#if clusterSummary.underReplicatedCount gt 0>class="warning"</#if>>${clusterSummary.underReplicatedCount}</td>
             </tr>
             </tbody>
@@ -53,18 +53,18 @@
     </div>
 
     <div id="brokers">
-        <h3><i class="fa fa-server"></i> Brokers</h3>
+        <h3><i class="fa fa-server"></i> 消息服务</h3>
         <table class="table table-bordered">
             <thead>
             <tr>
                 <th><i class="fa fa-tag"></i>&nbsp;&nbsp;ID</th>
-                <th><i class="fa fa-laptop"></i>&nbsp;&nbsp;Host</th>
-                <th><i class="fa fa-plug"></i>&nbsp;&nbsp;Port</th>
-                <th><i class="fa fa-server"></i>&nbsp;&nbsp;Rack</th>
-                <th><i class="fa fa-trophy"></i>&nbsp;&nbsp;Controller</th>
+                <th><i class="fa fa-laptop"></i>&nbsp;&nbsp;主机</th>
+                <th><i class="fa fa-plug"></i>&nbsp;&nbsp;端口</th>
+                <th><i class="fa fa-server"></i>&nbsp;&nbsp;机架</th>
+                <th><i class="fa fa-trophy"></i>&nbsp;&nbsp;控制器</th>
                 <th>
-                    <i class="fa fa-pie-chart"></i>&nbsp;&nbsp;Number of partitions (% of total)
-                    <a title="# of partitions this broker is the leader for"
+                    <i class="fa fa-pie-chart"></i>&nbsp;&nbsp;分区数量 (% of total)
+                    <a title="# 该代理是分区的领导者"
                        data-toggle="tooltip" data-placement="top" href="#">
                         <i class="fa fa-question-circle"></i>
                     </a>
@@ -74,11 +74,11 @@
             <tbody>
             <#if brokers?size == 0>
                 <tr>
-                    <td class="danger text-danger" colspan="8"><i class="fa fa-warning"></i> No brokers available</td>
+                    <td class="danger text-danger" colspan="8"><i class="fa fa-warning"></i> 无可用的Broker</td>
                 </tr>
             <#elseif missingBrokerIds?size gt 0>
                 <tr>
-                    <td class="danger text-danger" colspan="8"><i class="fa fa-warning"></i> Missing
+                    <td class="danger text-danger" colspan="8"><i class="fa fa-warning"></i> 错误的
                         brokers: <#list missingBrokerIds as b>${b}<#if b_has_next>, </#if></#list></td>
                 </tr>
             </#if>
@@ -99,43 +99,43 @@
     </div>
 
     <div id="topics">
-        <h3><i class="fa fa-database"></i> Topics&nbsp;&nbsp;&nbsp;<a href="<@spring.url '/acl'/>"><i class="fa fa-lock"></i> ACLs</a></h3>
+        <h3><i class="fa fa-database"></i> 主题&nbsp;&nbsp;&nbsp;<a href="<@spring.url '/acl'/>"><i class="fa fa-lock"></i> 访问控制</a></h3>
         <table class="table table-bordered">
             <thead>
             <tr>
                 <th>
-                    Name
+                    名称
 
                     <span style="font-weight:normal;">
-                            &nbsp;<INPUT id='filter' size=25 NAME='searchRow' title='Just type to filter the rows'>&nbsp;
+                            &nbsp;<INPUT id='filter' size=25 NAME='searchRow' title='只需键入即可过滤行'>&nbsp;
                         <span id="rowCount"></span>
                     </span>
                 </th>
                 <th>
-                    Partitions
-                    <a title="Number of partitions in the topic"
+                    分区
+                    <a title="主题中的分区数量"
                        data-toggle="tooltip" data-placement="top" href="#"
                     ><i class="fa fa-question-circle"></i></a>
                 </th>
                 <th>
-                    % Preferred
-                    <a title="Percent of partitions where the preferred broker has been assigned leadership"
+                    % 首选
+                    <a title="首选Broker被任命为领导者的分区的百分比"
                        data-toggle="tooltip" data-placement="top" href="#"
                     ><i class="fa fa-question-circle"></i></a>
                 </th>
                 <th>
-                    # Under-replicated
-                    <a title="Number of partition replicas that are not in sync with the primary partition"
+                    # 复制不足
+                    <a title="与主分区不同步的分区副本数"
                        data-toggle="tooltip" data-placement="top" href="#"
                     ><i class="fa fa-question-circle"></i></a>
                 </th>
-                <th>Custom Config</th>
+                <th>自定义</th>
             </tr>
             </thead>
             <tbody>
             <#if topics?size == 0>
                 <tr>
-                    <td colspan="5">No topics available</td>
+                    <td colspan="5">无主题可用</td>
                 </tr>
             </#if>
             <#list topics as t>
@@ -150,7 +150,7 @@
             </tbody>
         </table>
         <a class="btn btn-outline-light" href="<@spring.url '/topic/create'/>">
-            <i class="fa fa-plus"></i> New
+            <i class="fa fa-plus"></i> 新建主题
         </a>
     </div>
 </div>

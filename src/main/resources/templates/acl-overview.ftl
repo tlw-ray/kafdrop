@@ -32,19 +32,19 @@
 <#setting number_format="0">
 
 <h2>ACLs</h2>
-<div id="searchFilter">Search filter&nbsp;&nbsp;<INPUT id='filter' size=30 NAME='searchRow' title='Just type to filter the rows'></div>
+<div id="searchFilter">搜索过滤&nbsp;<INPUT id='filter' size=30 NAME='searchRow' title='Just type to filter the rows'></div>
 <br/>
 <div id="acl-overview">
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th><i class="fa fa-tag"></i>&nbsp;&nbsp;Pattern Name</th>
-            <th><i class="fa fa-user"></i>&nbsp;&nbsp;Principal</th>
-            <th><i class="fa fa-user"></i>&nbsp;&nbsp;Resource Type</th>
-            <th><i class="fa fa-tag"></i>&nbsp;&nbsp;Pattern Type</th>
-            <th><i class="fa fa-tag"></i>&nbsp;&nbsp;Operation</th>
-            <th><i class="fa fa-server"></i>&nbsp;&nbsp;Host</th>
-            <th><i class="fa fa-tag"></i>&nbsp;&nbsp;Permission Type</th>
+            <th><i class="fa fa-tag"></i>&nbsp;&nbsp;模式名</th>
+            <th><i class="fa fa-user"></i>&nbsp;&nbsp;主要内容</th>
+            <th><i class="fa fa-user"></i>&nbsp;&nbsp;资源类型</th>
+            <th><i class="fa fa-tag"></i>&nbsp;&nbsp;模式类型</th>
+            <th><i class="fa fa-tag"></i>&nbsp;&nbsp;操作</th>
+            <th><i class="fa fa-server"></i>&nbsp;&nbsp;主机</th>
+            <th><i class="fa fa-tag"></i>&nbsp;&nbsp;许可类型</th>
         </tr>
         </thead>
         <tbody>

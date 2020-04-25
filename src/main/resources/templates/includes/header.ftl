@@ -24,13 +24,13 @@
                 </div>
                 <div id="title" class="col-md-10">
                     <h1 class="app-name brand mb-0">
-                        <a href="<@spring.url '/'/>">Kafdrop</a>
+                        <a href="<@spring.url '/'/>">数据中台-数据总线-消息浏览器</a>
                     </h1>
                 </div>
-                <div id="github-star" class="col-md-1">
-                    <a class="github-button" href="https://github.com/obsidiandynamics/kafdrop" data-show-count="false"
-                       aria-label="Star Kafdrop on GitHub" data-color-scheme="dark">Star</a>
-                </div>
+<#--                <div id="github-star" class="col-md-1">-->
+<#--                    <a class="github-button" href="https://github.com/obsidiandynamics/kafdrop" data-show-count="false"-->
+<#--                       aria-label="Star Kafdrop on GitHub" data-color-scheme="dark">Star</a>-->
+<#--                </div>-->
                 <script>
                     $(document).ready(function(){
                         setTimeout(function() { restyle(0); });

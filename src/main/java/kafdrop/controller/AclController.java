@@ -48,7 +48,7 @@ public final class AclController {
     return "acl-overview";
   }
 
-  @ApiOperation(value = "getAllAcls", notes = "Get list of all acls")
+  @ApiOperation(value = "getAllAcls", notes = "获得所有访问控制列表")
   @ApiResponses(value = {
       @ApiResponse(code = 200, message = "Success", response = String.class, responseContainer = "List")
   })

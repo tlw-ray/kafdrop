@@ -15,7 +15,7 @@
 -->
 <#import "/spring.ftl" as spring />
 <#import "lib/template.ftl" as template>
-<@template.header "Topic: ${topic.name}">
+<@template.header "主题: ${topic.name}">
     <style type="text/css">
         #action-bar {
             margin-top: 17px;
@@ -34,44 +34,44 @@
 
 <#setting number_format="0">
 
-<h2>Topic: ${topic.name}</h2>
+<h2>主题: ${topic.name}</h2>
 
 <#if deleteErrorMessage??>
-    <p>Error deleting topic ${topic.name}: ${deleteErrorMessage}</p>
+    <p>删除主题时出错 ${topic.name}: ${deleteErrorMessage}</p>
 </#if>
 
 <div id="action-bar" class="container pl-0">
-    <a id="topic-messages" class="btn btn-outline-light" href="<@spring.url '/topic/${topic.name}/messages'/>"><i class="fa fa-eye"></i> View Messages</a>
+    <a id="topic-messages" class="btn btn-outline-light" href="<@spring.url '/topic/${topic.name}/messages'/>"><i class="fa fa-eye"></i> 查阅消息</a>
     <form id="delete-topic-form" action="<@spring.url '/topic/${topic.name}/delete'/>" method="POST">
-        <button class="btn btn-danger" type="submit"><i class="fa fa-remove"></i> Delete topic</button>
+        <button class="btn btn-danger" type="submit"><i class="fa fa-remove"></i> 删除主题</button>
     </form>
 </div>
 <br/>
 <div class="container-fluid pl-0">
     <div class="row">
         <div id="topic-overview" class="col-md-8">
-            <h3>Overview</h3>
+            <h3>概览</h3>
 
             <table class="table table-bordered">
                 <tbody>
                 <tr>
-                    <td># of partitions</td>
+                    <td># 分区</td>
                     <td>${topic.partitions?size}</td>
                 </tr>
                 <tr>
-                    <td>Preferred replicas</td>
+                    <td>首选副本</td>
                     <td <#if topic.preferredReplicaPercent lt 1.0>class="warning"</#if>>${topic.preferredReplicaPercent?string.percent}</td>
                 </tr>
                 <tr>
-                    <td>Under-replicated partitions</td>
+                    <td>复制不足的分区</td>
                     <td <#if topic.underReplicatedPartitions?size gt 0>class="warning"</#if>>${topic.underReplicatedPartitions?size}</td>
                 </tr>
                 <tr>
-                    <td>Total size</td>
+                    <td>总大小</td>
                     <td>${topic.totalSize}</td>
                 </tr>
                 <tr>
-                    <td>Total available messages</td>
+                    <td>总可用消息</td>
                     <td>${topic.availableSize}</td>
                 </tr>
                 </tbody>
@@ -79,10 +79,10 @@
         </div>
 
         <div id="topic-config" class="col-md-4">
-            <h3>Configuration</h3>
+            <h3>配置</h3>
 
             <#if topic.config?size == 0>
-                <div>No topic-specific configuration</div>
+                <div>没有特定主题的配置</div>
             <#else>
                 <table class="table table-bordered">
                     <tbody>
@@ -101,20 +101,20 @@
 
     <div class="row">
         <div id="partition-detail" class="col-md-8">
-            <h3>Partition Detail</h3>
+            <h3>分区详情</h3>
             <table id="partition-detail-table" class="table table-bordered table-sm small">
                 <thead>
                 <tr>
-                    <th>Partition</th>
-                    <th>First<br>Offset</th>
-                    <th>Last<br>Offset</th>
-                    <th>Size</th>
-                    <th>Leader<br>Node</th>
-                    <th>Replica<br>Nodes</th>
-                    <th>In-sync<br>Replica<br>Nodes</th>
-                    <th>Offline<br>Replica<br>Nodes</th>
-                    <th>Preferred<br>Leader</th>
-                    <th>Under-replicated</th>
+                    <th>分区</th>
+                    <th>第一<br>偏移</th>
+                    <th>最后<br>偏移</th>
+                    <th>尺寸</th>
+                    <th>领导<br>节点</th>
+                    <th>复制<br>节点</th>
+                    <th>同步中<br>复制<<br>节点</th>
+                    <th>离线<br>复制<br>节点</th>
+                    <th>首选<br>领导</th>
+                    <th>复制不足</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -137,12 +137,12 @@
         </div>
 
         <div id="consumers" class="col-md-4">
-            <h3>Consumers</h3>
+            <h3>消费者</h3>
             <table id="consumers-table" class="table table-bordered table-sm small">
                 <thead>
                 <tr>
-                    <th>Group ID</th>
-                    <th>Combined Lag</th>
+                    <th>组 ID</th>
+                    <th>合并滞后</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -166,7 +166,7 @@
     $('#delete-topic-form').submit(function (event) {
       if (!removalConfirmed) {
         event.preventDefault();
-        if(confirm('Are you sure you want to delete the topic?')) {
+        if(confirm('您确定要删除主题?')) {
           removalConfirmed = true;
           $('#delete-topic-form').submit();
         }

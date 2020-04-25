@@ -206,7 +206,7 @@ public final class MessageController {
    * @param topicName Name of topic.
    * @return Offset or message data.
    */
-  @ApiOperation(value = "getPartitionOrMessages", notes = "Get offset or message data for a topic. Without query params returns all partitions with offset data. With query params, returns actual messages (if valid offsets are provided).")
+  @ApiOperation(value = "getPartitionOrMessages", notes = "获得topic中消息数据的偏移量。无参返回所有分区偏移数据。带参返回实际消息(如果位移信息可用且被支持)。")
   @ApiResponses(value = {
       @ApiResponse(code = 200, message = "Success", response = List.class),
       @ApiResponse(code = 404, message = "Invalid topic name")

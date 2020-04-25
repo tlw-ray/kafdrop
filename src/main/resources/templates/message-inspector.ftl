@@ -16,7 +16,7 @@
 -->
 <#import "/spring.ftl" as spring />
 <#import "lib/template.ftl" as template>
-<@template.header "Topic: ${topic.name}: Messages">
+<@template.header "主题: ${topic.name}: 消息">
     <style type="text/css">
         h2 {
             margin-bottom: 16px;
@@ -66,7 +66,7 @@
 <#setting number_format="0">
 
 
-<h2>Topic Messages: <a href="<@spring.url '/topic/${topic.name}'/>">${topic.name}</a></h2>
+<h2>主题消息: <a href="<@spring.url '/topic/${topic.name}'/>">${topic.name}</a></h2>
 
 <#assign selectedPartition=messageForm.partition!0?number>
 <#assign selectedFormat=messageForm.format!defaultFormat>
@@ -74,16 +74,16 @@
 
 <div id="partitionSizes">
     <#assign curPartition=topic.getPartition(selectedPartition).get()>
-    <span class="badge badge-light">First Offset:</span> <span id="firstOffset">${curPartition.firstOffset}</span>&nbsp;
-    <span class="badge badge-light">Last Offset:</span> <span id="lastOffset">${curPartition.size}</span>&nbsp;
-    <span class="badge badge-light">Size:</span> <span
+    <span class="badge badge-light">第一偏移:</span> <span id="firstOffset">${curPartition.firstOffset}</span>&nbsp;
+    <span class="badge badge-light">最后偏移:</span> <span id="lastOffset">${curPartition.size}</span>&nbsp;
+    <span class="badge badge-light">尺寸:</span> <span
             id="partitionSize">${curPartition.size - curPartition.firstOffset}</span>
 </div>
 
 <div id="messageFormPanel" class="card">
     <form method="GET" action="<@spring.url '/topic/${topic.name}/messages'/>" id="messageForm" class="form-inline card-body">
         <div class="form-group">
-            <label for="partition">Partition</label>
+            <label for="partition">分区</label>
             <select class="form-control" id="partition" name="partition">
                 <#list topic.partitions as p>
                     <option value="${p.id}" data-first-offset="${p.firstOffset}" data-last-offset="${p.size}"
@@ -94,7 +94,7 @@
         &nbsp;&nbsp;
         <@spring.bind path="messageForm.offset"/>
         <div class="form-group ${spring.status.error?string("has-error", "")}">
-            <label class="control-label" for="offset">Offset</label>
+            <label class="control-label" for="offset">偏移</label>
             <@spring.formInput path="messageForm.offset" attributes='class="form-control" size="10"'/>
             <#if spring.status.error>
                 <span class="text-danger"><i class="fa fa-times-circle"></i><@spring.showErrors "<br/>"/></span>
@@ -111,7 +111,7 @@
         </div>
         &nbsp;&nbsp;
         <div class="form-group">
-            <label for="format">Key format</label>
+            <label for="format">键格式</label>
             <select class="form-control" id="keyFormat" name="keyFormat">
                 <#list keyFormats as kf>
                     <option value="${kf}" <#if kf == selectedKeyFormat>selected="selected"</#if>>${kf}</option>
@@ -120,7 +120,7 @@
         </div>
         &nbsp;&nbsp;
         <div class="form-group">
-            <label for="format">Message format</label>
+            <label for="format">消息格式</label>
             <select class="form-control" id="format" name="format">
                 <#list messageFormats as f>
                     <option value="${f}" <#if f == selectedFormat>selected="selected"</#if>>${f}</option>
@@ -129,7 +129,7 @@
         </div>
         &nbsp;&nbsp;
         <div class="form-group" id="protobufDescriptor">
-            <label for="format">Protobuf descriptor</label>
+            <label for="format">Protobuf描述</label>
             <select class="form-control" id="descFile" name="descFile">
                 <#list descFiles as f>
                     <option value="${f}">${f}</option>
@@ -138,12 +138,12 @@
         </div>
         &nbsp;&nbsp;
         <div class="form-group" id="protobufMsgType">
-            <label class=control-label" for="format">Protobuf message type name</label>
+            <label class=control-label" for="format">Protobuf消息类型名</label>
             <@spring.formInput path="messageForm.msgTypeName" attributes='class="form-control"'/>
         </div>
         &nbsp;&nbsp;  
 
-        <button class="btn btn-success" type="submit"><i class="fa fa-search"></i> View Messages</button>
+        <button class="btn btn-success" type="submit"><i class="fa fa-search"></i> 查阅消息</button>
     </form>
 </div>
 
@@ -152,10 +152,10 @@
     <#if messages?? && messages?size gt 0>
         <#list messages as msg>
             <div class="message-detail">
-                <span class="badge badge-light">Offset:</span> ${msg.offset} &nbsp;
-                <span class="badge badge-light">Key:</span> ${msg.key!''} &nbsp;
-                <span class="badge badge-light">Timestamp:</span> ${msg.timestamp?string('yyyy-MM-dd HH:mm:ss.SSS')}
-                <span class="badge badge-light">Headers:</span> ${msg.headersFormatted}
+                <span class="badge badge-light">偏移:</span> ${msg.offset} &nbsp;
+                <span class="badge badge-light">键:</span> ${msg.key!''} &nbsp;
+                <span class="badge badge-light">时间戳:</span> ${msg.timestamp?string('yyyy-MM-dd HH:mm:ss.SSS')}
+                <span class="badge badge-light">头:</span> ${msg.headersFormatted}
                 <div>
                     <a href="#" class="toggle-msg"><i class="fa fa-chevron-circle-right">&nbsp;</i></a>
                     <pre class="message-body">${msg.message!''}</pre>
@@ -163,7 +163,7 @@
             </div>
         </#list>
     <#elseif !(spring.status.error) && !(messageForm.empty)>
-        No messages found in partition ${(messageForm.partition)!"PARTITION_NOT_SET"} at offset ${messageForm.offset}
+        分区中未找到消息 ${(messageForm.partition)!"PARTITION_NOT_SET"} 于偏移 ${messageForm.offset}
     </#if>
 </div>
 

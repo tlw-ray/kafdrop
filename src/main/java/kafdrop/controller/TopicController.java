@@ -69,7 +69,7 @@ public final class TopicController {
     return "topic-create";
   }
 
-  @ApiOperation(value = "getTopic", notes = "Get details for a topic")
+  @ApiOperation(value = "getTopic", notes = "获得topic详情")
   @ApiResponses(value = {
       @ApiResponse(code = 200, message = "Success", response = TopicVO.class),
       @ApiResponse(code = 404, message = "Invalid topic name")
@@ -80,7 +80,7 @@ public final class TopicController {
         .orElseThrow(() -> new TopicNotFoundException(topicName));
   }
 
-  @ApiOperation(value = "getAllTopics", notes = "Get list of all topics")
+  @ApiOperation(value = "getAllTopics", notes = "获得topics列表")
   @ApiResponses(value = {
       @ApiResponse(code = 200, message = "Success", response = String.class, responseContainer = "List")
   })
@@ -89,7 +89,7 @@ public final class TopicController {
     return kafkaMonitor.getTopics();
   }
 
-  @ApiOperation(value = "getConsumers", notes = "Get consumers for a topic")
+  @ApiOperation(value = "getConsumers", notes = "获得topic的consumers")
   @ApiResponses(value = {
       @ApiResponse(code = 200, message = "Success", response = String.class, responseContainer = "List"),
       @ApiResponse(code = 404, message = "Invalid topic name")
@@ -105,7 +105,7 @@ public final class TopicController {
    * API for topic creation
    * @param createTopicVO request
    */
-  @ApiOperation(value = "createTopic", notes = "Create topic")
+  @ApiOperation(value = "createTopic", notes = "创建topic")
   @ApiResponses(value = {
       @ApiResponse(code = 200, message = "Success", response = String.class)
   })

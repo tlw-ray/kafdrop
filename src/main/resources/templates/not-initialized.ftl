@@ -14,12 +14,12 @@
  limitations under the License.
 -->
 <#import "lib/template.ftl" as template>
-<@template.header "Initializing...">
+<@template.header "初始化...">
     <meta http-equiv="refresh" content="5">
 </@template.header>
 
 <div>
-    <p>Internal caches are still initializing. Please wait...</p>
+    <p>内部缓存仍在初始化。 请耐心等待...</p>
 </div>
 
 <@template.footer/>

@@ -16,7 +16,7 @@
 <#import "/spring.ftl" as spring />
 <#import "lib/template.ftl" as template>
 
-<@template.header "Topic: ${topic.name}: Messages">
+<@template.header "主题: ${topic.name}: 消息">
     <style type="text/css">
         h2 {
             margin-bottom: 16px;
@@ -32,17 +32,17 @@
 </@template.header>
 <#setting number_format="0">
 
-<h2>Topic Messages: <a href="<@spring.url '/topic/${topic.name}'/>">${topic.name}</a></h2>
+<h2>主题消息: <a href="<@spring.url '/topic/${topic.name}'/>">${topic.name}</a></h2>
 
 <div class="container">
     <#if messages?? && messages?size gt 0>
         <#list messages as msg>
             <div class="message-detail">
-                <span class="badge badge-light">Partition:</span> ${msg.partition} &nbsp;
-                <span class="badge badge-light">Offset:</span> ${msg.offset} &nbsp;
-                <span class="badge badge-light">Key:</span> ${msg.key!''} &nbsp;
-                <span class="badge badge-light">Timestamp:</span> ${msg.timestamp?string('yyyy-MM-dd HH:mm:ss.SSS')}
-                <span class="badge badge-light">Headers:</span> ${msg.headersFormatted}
+                <span class="badge badge-light">分区:</span> ${msg.partition} &nbsp;
+                <span class="badge badge-light">位移:</span> ${msg.offset} &nbsp;
+                <span class="badge badge-light">键:</span> ${msg.key!''} &nbsp;
+                <span class="badge badge-light">时间戳:</span> ${msg.timestamp?string('yyyy-MM-dd HH:mm:ss.SSS')}
+                <span class="badge badge-light">头:</span> ${msg.headersFormatted}
                 <div>
                     <a href="#" class="toggle-msg"><i class="fa fa-chevron-circle-right">&nbsp;</i></a>
                     <pre class="message-body">${msg.message!''}</pre>

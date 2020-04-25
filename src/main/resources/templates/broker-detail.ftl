@@ -32,28 +32,28 @@
 <h2>Broker ID: ${broker.id}</h2>
 
 <div id="topic-overview">
-    <h3>Broker Overview</h3>
+    <h3>Broker概览</h3>
 
     <table class="table table-bordered overview">
         <tbody>
         <tr>
-            <td><i class="fa fa-laptop"></i>&nbsp;&nbsp;Host</td>
+            <td><i class="fa fa-laptop"></i>&nbsp;&nbsp;主机</td>
             <td>${broker.host?if_exists}</td>
         </tr>
         <tr>
-            <td><i class="fa fa-plug"></i>&nbsp;&nbsp;Port</td>
+            <td><i class="fa fa-plug"></i>&nbsp;&nbsp;端口</td>
             <td>${broker.port}</td>
         </tr>
         <tr>
-            <td><i class="fa fa-server"></i>&nbsp;&nbsp;Rack</td>
+            <td><i class="fa fa-server"></i>&nbsp;&nbsp;机架</td>
             <td><#if broker.rack??>${broker.rack}<#else>-</#if></td>
         </tr>
         <tr>
-            <td><i class="fa fa-trophy"></i>&nbsp;&nbsp;Controller</td>
+            <td><i class="fa fa-trophy"></i>&nbsp;&nbsp;控制器</td>
             <td><@template.yn broker.controller/></td>
         </tr>
         <tr>
-            <td><i class="fa fa-database"></i>&nbsp;&nbsp;Number of topics</td>
+            <td><i class="fa fa-database"></i>&nbsp;&nbsp;主题数量(topics)</td>
             <td>${topics?size}</td>
         </tr>
 
@@ -62,7 +62,7 @@
             <#assign partitionCount=partitionCount+(t.getLeaderPartitions(broker.id)?size)>
         </#list>
         <tr>
-            <td><i class="fa fa-pie-chart"></i>&nbsp;&nbsp;Number of partitions</td>
+            <td><i class="fa fa-pie-chart"></i>&nbsp;&nbsp;分区数量(partitions)</td>
             <td>${partitionCount}</td>
         </tr>
         </tbody>

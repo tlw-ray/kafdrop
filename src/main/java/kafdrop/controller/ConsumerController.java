@@ -46,7 +46,7 @@ public final class ConsumerController {
     return "consumer-detail";
   }
 
-  @ApiOperation(value = "getConsumer", notes = "Get topic and partition details for a consumer group")
+  @ApiOperation(value = "getConsumer", notes = "获得Topic和分区详情从consumer group。")
   @ApiResponses(value = {
       @ApiResponse(code = 200, message = "Success", response = ConsumerVO.class),
       @ApiResponse(code = 404, message = "Invalid consumer group")

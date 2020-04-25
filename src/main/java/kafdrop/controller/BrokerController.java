@@ -44,7 +44,7 @@ public final class BrokerController {
     return "broker-detail";
   }
 
-  @ApiOperation(value = "getBroker", notes = "Get details for a specific Kafka broker")
+  @ApiOperation(value = "getBroker", notes = "获得特定Kafka Broker详情")
   @ApiResponses(value = {
       @ApiResponse(code = 200, message = "Success", response = BrokerVO.class),
       @ApiResponse(code = 404, message = "Invalid Broker ID")
@@ -54,7 +54,7 @@ public final class BrokerController {
     return kafkaMonitor.getBroker(brokerId).orElseThrow(() -> new BrokerNotFoundException("No such broker " + brokerId));
   }
 
-  @ApiOperation(value = "getAllBrokers", notes = "Get details for all known Kafka brokers")
+  @ApiOperation(value = "getAllBrokers", notes = "获得所有已知Kafka Broker详情")
   @ApiResponses(value = {
       @ApiResponse(code = 200, message = "Success", response = BrokerVO.class)
   })
