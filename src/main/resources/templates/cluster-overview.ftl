@@ -63,7 +63,7 @@
                 <th><i class="fa fa-server"></i>&nbsp;&nbsp;机架</th>
                 <th><i class="fa fa-trophy"></i>&nbsp;&nbsp;控制器</th>
                 <th>
-                    <i class="fa fa-pie-chart"></i>&nbsp;&nbsp;分区数量 (% of total)
+                    <i class="fa fa-pie-chart"></i>&nbsp;&nbsp;分区数量 (% 总量)
                     <a title="# 该代理是分区的领导者"
                        data-toggle="tooltip" data-placement="top" href="#">
                         <i class="fa fa-question-circle"></i>
