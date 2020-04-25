@@ -31,7 +31,7 @@
 
 <#setting number_format="0">
 
-<h2>ACLs</h2>
+<h2>访问控制清单</h2>
 <div id="searchFilter">搜索过滤&nbsp;<INPUT id='filter' size=30 NAME='searchRow' title='Just type to filter the rows'></div>
 <br/>
 <div id="acl-overview">

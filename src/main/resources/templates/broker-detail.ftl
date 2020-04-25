@@ -29,10 +29,10 @@
 
 <#setting number_format="0">
 
-<h2>Broker ID: ${broker.id}</h2>
+<h2>服务ID: ${broker.id}</h2>
 
 <div id="topic-overview">
-    <h3>Broker概览</h3>
+    <h3>服务概览</h3>
 
     <table class="table table-bordered overview">
         <tbody>
@@ -53,7 +53,7 @@
             <td><@template.yn broker.controller/></td>
         </tr>
         <tr>
-            <td><i class="fa fa-database"></i>&nbsp;&nbsp;主题数量(topics)</td>
+            <td><i class="fa fa-database"></i>&nbsp;&nbsp;主题数量</td>
             <td>${topics?size}</td>
         </tr>
 
@@ -62,7 +62,7 @@
             <#assign partitionCount=partitionCount+(t.getLeaderPartitions(broker.id)?size)>
         </#list>
         <tr>
-            <td><i class="fa fa-pie-chart"></i>&nbsp;&nbsp;分区数量(partitions)</td>
+            <td><i class="fa fa-pie-chart"></i>&nbsp;&nbsp;分区数量</td>
             <td>${partitionCount}</td>
         </tr>
         </tbody>
@@ -70,15 +70,15 @@
 </div>
 
 <div>
-    <h3>Topic Detail</h3>
+    <h3>主题详情</h3>
 
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>Topic</th>
-            <th>Total Partitions</th>
-            <th>Broker Partitions</th>
-            <th>Partition IDs</th>
+            <th>主题</th>
+            <th>总分区</th>
+            <th>服务分区</th>
+            <th>分区IDs</th>
         </tr>
         </thead>
         <tbody>
