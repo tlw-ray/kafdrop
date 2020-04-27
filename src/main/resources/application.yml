@@ -1,5 +1,5 @@
 server:
-  port: ${SERVER_PORT:37000}
+  port: ${SERVER_PORT:9999}
   servlet:
     context-path: /
   error:
@@ -9,7 +9,7 @@ server:
 spring:
   jmx:
     enabled: true
-    default_domain: Kafdrop
+    default_domain: kafkaUI
   jackson:
     deserialization:
       fail_on_unknown_properties: false
@@ -21,13 +21,13 @@ management:
       base-path: /actuator
       exposure.include: "*"
   server:
-    port: 37000
+    port: 9999
 
 kafdrop.monitor:
-  clientId: Kafdrop
+  clientId: kafkaui
 
 kafka:
-  brokerConnect: 192.168.0.72:9092
+  brokerConnect: 172.16.6.162:9094
   isSecured: false
   saslMechanism: "PLAIN"
   securityProtocol: "SASL_PLAINTEXT"

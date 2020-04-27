@@ -32,7 +32,7 @@
 </@template.header>
 <#setting number_format="0">
 
-<h2>主题消息: <a href="<@spring.url '/topic/${topic.name}'/>">${topic.name}</a></h2>
+<h2>主题: <a href="<@spring.url '/topic/${topic.name}'/>">${topic.name}</a></h2>
 
 <div class="container">
     <#if messages?? && messages?size gt 0>

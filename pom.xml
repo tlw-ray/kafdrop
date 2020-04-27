@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.obsidiandynamics.kafdrop</groupId>
-    <artifactId>kafdrop</artifactId>
+    <artifactId>dcs-kafka-ui</artifactId>
     <version>3.24.0</version>
 
     <description>For when you have a Kafka cluster to monitor</description>
@@ -17,21 +17,25 @@
         <additionalOptions>-Xdoclint:none</additionalOptions>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <protobuf.version>3.11.1</protobuf.version>
+        <encoding>UTF-8</encoding>
+        <java.version>1.11</java.version>
+        <maven.compiler.source>1.11</maven.compiler.source>
+        <maven.compiler.target>1.11</maven.compiler.target>
     </properties>
 
-    <scm>
-        <connection>scm:git:git@github.com:obsidiandynamics/kafdrop.git</connection>
-        <developerConnection>scm:git:git@github.com:obsidiandynamics/kafdrop.git</developerConnection>
-        <tag>HEAD</tag>
-    </scm>
+    <!--<scm>-->
+        <!--<connection>scm:git:git@github.com:obsidiandynamics/kafdrop.git</connection>-->
+        <!--<developerConnection>scm:git:git@github.com:obsidiandynamics/kafdrop.git</developerConnection>-->
+        <!--<tag>HEAD</tag>-->
+    <!--</scm>-->
 
-    <distributionManagement>
-        <repository>
-            <id>bintray-obsidiandynamics-kafdrop</id>
-            <name>obsidiandynamics-kafdrop</name>
-            <url>https://api.bintray.com/maven/obsidiandynamics/kafdrop/main/;publish=1</url>
-        </repository>
-    </distributionManagement>
+    <!--<distributionManagement>-->
+        <!--<repository>-->
+            <!--<id>bintray-obsidiandynamics-kafdrop</id>-->
+            <!--<name>obsidiandynamics-kafdrop</name>-->
+            <!--<url>https://api.bintray.com/maven/obsidiandynamics/kafdrop/main/;publish=1</url>-->
+        <!--</repository>-->
+    <!--</distributionManagement>-->
 
     <repositories>
         <repository>
@@ -224,7 +228,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.2.0</version>
                 <configuration>
-                    <imageName>obsidiandynamics/kafdrop</imageName>
+                    <imageName>172.16.0.183:8082/dcs/kafkaui</imageName>
                     <forceTags>true</forceTags>
                     <dockerDirectory>${project.build.directory}/docker-ready</dockerDirectory>
                     <imageTags>

@@ -64,5 +64,5 @@ ARGS="--add-opens=java.base/sun.nio.ch=ALL-UNNAMED -Xss256K \
      $HEAP_ARGS \
      $JVM_OPTS"
 
-java $ARGS -jar /kafdrop*/kafdrop*jar $CMD_ARGS
+java $ARGS -jar /dcs-kafka-ui*/dcs-kafka-ui*jar $CMD_ARGS
 

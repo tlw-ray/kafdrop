@@ -1,7 +1,7 @@
 FROM openjdk:12.0.1-jdk-oraclelinux7
 
 ADD kafdrop.sh /
-ADD kafdrop*tar.gz /
+ADD dcs-kafka-ui*tar.gz /
 
 RUN chmod +x /kafdrop.sh
 

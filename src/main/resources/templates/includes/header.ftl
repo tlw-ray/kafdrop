@@ -24,7 +24,7 @@
                 </div>
                 <div id="title" class="col-md-10">
                     <h1 class="app-name brand mb-0">
-                        <a href="<@spring.url '/'/>">数据中台-数据总线-消息浏览器</a>
+                        <a href="<@spring.url '/'/>">数据总线-消息浏览器</a>
                     </h1>
                 </div>
 <#--                <div id="github-star" class="col-md-1">-->
